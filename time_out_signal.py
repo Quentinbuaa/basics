@@ -9,11 +9,16 @@ Third, the signal will raise up a TimeOutError exception if the execution time i
 Forth, if the program finished before the timeout, the "try" will reset the signal.alarm. Then the TimeOutError will not be triggerd. 
 """
 
-
+# this is the function that could lead to timeout
 def bug_reproduce():
     import time
     time.sleep(5)
     return result
+
+"""
+this is a function wrapper, it can either return the function return results
+or terminate without any result for a "timeout" running period. 
+"""
 
 def time_out(func, args = (), kwargs={},timeout = 10):
     import signal  
@@ -34,6 +39,7 @@ def time_out(func, args = (), kwargs={},timeout = 10):
 
     return result
 
+#this is the test function
 def run():
     cen_time = 100
     for i in range(cen_time):
