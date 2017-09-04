@@ -5,3 +5,4 @@ xset m 2/1 4
 
 #xset m 1/1 8
 #xset m 1/2 8
+#xset m default
